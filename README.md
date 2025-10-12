@@ -1,9 +1,7 @@
 # CollageClassWork_SystemAnalysisAndDesign_Group
 Collage class work: System Analysis And Design (Group)
 
-大學課堂作業：系統分析與設計課_小組專案
-
-第四組
+大學課堂作業：系統分析與設計課_第四組
 
 # 專題題目：模組化記帳系統
 內容：
