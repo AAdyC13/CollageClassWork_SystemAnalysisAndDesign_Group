@@ -51,7 +51,7 @@ erDiagram
 
 ## 2. 組合實體範例 (Composite Entities Examples)
 
-本系統使用 `PLUGIN_DYNAMIC_TABLES` 作為通用的擴充載體,但在邏輯上形成了以下組合實體:
+本系統使用 `PLUGIN_DYNAMIC_TABLES` 作為通用的擴充載體,但在邏輯上可以自由定義各式組合實體完成所有邏輯，以下為範例內容:
 
 ### 1. 電子發票組合實體 (Invoice Entity)
 
@@ -61,12 +61,15 @@ erDiagram
 
 **結構:** 包含外鍵 `expense_id` (指向該筆消費) 與 JSON 資料 `custom_data` (存放發票細節)。
 
-### 2. 地點打卡組合實體 (Location Entity)
+### 2. 圖片附件組合實體 (Receipt Attachment Entity)
 
-**定義:** 將「核心帳目 (Expense)」與「地圖模組 (Map Plugin)」結合的實體。
+**定義:** 核心帳目 + 圖片/相機模組資料。
 
-**功能:** 為記帳資料擴充空間維度,記錄消費發生的經緯度、地點名稱 (POI) 與地址。
+**功能:** 可以紀錄實體收據或商品照片作為憑證供檢閱。
 
-**結構:** 包含外鍵 `expense_id` (指向該筆消費) 與 JSON 資料 `custom_data` (存放 GPS 座標與地名)。
+**結構:** expense_id: 關聯至核心消費紀錄。實作細節可能如下：
+```json
+custom_data: { "localPath": "/storage/.../img.jpg", "thumbnail": "base64..." }。
+```
 
 ---
